@@ -5,9 +5,6 @@ import java.util.Random;
 import java.util.stream.Collectors;
 
 public class Utils {
-    public static final int amountData = 10000000;
-    public static final int amountIterations = 10;
-
     public static Collection<Integer> populate(
             int amount) {
         return new Random()
@@ -19,22 +16,21 @@ public class Utils {
 
     public static void printResults(String operation,
                                     long arrayListTime,
-                                    long linkedListTime) {
+                                    long linkedListTime, int amountData, int amountIterations) {
         System.out.println(
                 "[" + operation + "] Amount Data: " + amountData);
         System.out.println(
                 "[" + operation + "] Amount Iterations: " + amountIterations);
         System.out.println(
                 "[" + operation + "] Average ArrayList (ms): " + calculateAverage(
-                        arrayListTime));
+                        arrayListTime, amountIterations));
         System.out.println(
                 "[" + operation + "] Average LinkedList (ms): " + (calculateAverage(
-                        linkedListTime)));
+                        linkedListTime, amountIterations)));
     }
 
     public static float calculateAverage(
-            long totalTime) {
-        System.out.println(totalTime);
+            long totalTime, int amountIterations) {
         return totalTime / (float) amountIterations;
     }
 
