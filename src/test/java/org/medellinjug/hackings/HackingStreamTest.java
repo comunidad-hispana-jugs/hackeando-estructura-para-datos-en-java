@@ -15,15 +15,27 @@ public class HackingStreamTest {
     private final Integer CONDITIONAL_AGE = 43;
 
     @Test
-    public void validStream(){
+    public void validStreamWithDataModel(){
         Long result = HackingStream.playersGreaterThanStream(getData(), CONDITIONAL_AGE);
         Assertions.assertEquals(3, result);
     }
 
     @Test
-    public void validForLoop(){
+    public void validForLoopWithDataModel(){
         Long result = HackingStream.playersGreaterThanForLoop(getData(), CONDITIONAL_AGE);
         Assertions.assertEquals(3, result);
+    }
+
+    @Test
+    public void validStream(){
+        Integer result = HackingStream.getMaxStream(3,4,2,1,2,4,243,123,123,532,123,211,23);
+        Assertions.assertEquals(532, result);
+    }
+
+    @Test
+    public void validForLoop(){
+        Integer result = HackingStream.getMaxForLoop(3,4,2,1,2,4,243,123,123,532,123,211,23);
+        Assertions.assertEquals(532, result);
     }
 
     private List<Data> getData(){

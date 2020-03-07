@@ -37,10 +37,28 @@ public class Benchmarks {
     }
 
 
+    @Benchmark
+    @BenchmarkMode(Mode.Throughput)
+    @OutputTimeUnit(TimeUnit.SECONDS)
+    @Fork(1)
+    public  void getMaxValue_forLoop(ScopeTester scopeTester){
+        HackingStream.getMaxForLoop(scopeTester.baseInts);
+    }
+
+    @Benchmark
+    @BenchmarkMode(Mode.Throughput)
+    @OutputTimeUnit(TimeUnit.SECONDS)
+    @Fork(1)
+    public  void getMaxValue_stream(ScopeTester scopeTester){
+        HackingStream.getMaxStream(scopeTester.baseInts);
+    }
+
+
     @State(Scope.Thread)
     public static class ScopeTester {
         private List<Data> data;
         private Integer evaluationAge = 30;
+        private int[] baseInts = {12,32,123,44,12,34,5,3212,45,678,32,122,3,4556,3112,334,5,13,7,661,543,22,1,221,7,66,5545,67,8,9,898,6544};
 
         public List<Data> getData() {
             return data;
