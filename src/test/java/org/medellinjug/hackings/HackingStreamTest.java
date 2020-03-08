@@ -1,0 +1,55 @@
+package org.medellinjug.hackings;
+
+import com.fasterxml.jackson.databind.MappingIterator;
+import com.fasterxml.jackson.dataformat.csv.CsvMapper;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.medellinjug.hackings.model.Data;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.List;
+
+public class HackingStreamTest {
+
+    private final Integer CONDITIONAL_AGE = 43;
+
+    @Test
+    public void validStreamWithDataModel(){
+        Long result = HackingStream.playersGreaterThanStream(getData(), CONDITIONAL_AGE);
+        Assertions.assertEquals(3, result);
+    }
+
+    @Test
+    public void validForLoopWithDataModel(){
+        Long result = HackingStream.playersGreaterThanForLoop(getData(), CONDITIONAL_AGE);
+        Assertions.assertEquals(3, result);
+    }
+
+    @Test
+    public void validStream(){
+        Integer result = HackingStream.getMaxStream(3,4,2,1,2,4,243,123,123,532,123,211,23);
+        Assertions.assertEquals(532, result);
+    }
+
+    @Test
+    public void validForLoop(){
+        Integer result = HackingStream.getMaxForLoop(3,4,2,1,2,4,243,123,123,532,123,211,23);
+        Assertions.assertEquals(532, result);
+    }
+
+    private List<Data> getData(){
+        ClassLoader loader = Thread.currentThread().getContextClassLoader();
+        InputStream csvfile = loader.getResourceAsStream("data.csv");
+        MappingIterator<Data> personIter;
+        try {
+            assert csvfile != null;
+            personIter = new CsvMapper()
+                    .readerWithTypedSchemaFor(Data.class)
+                    .readValues(csvfile);
+            return personIter.readAll();
+        } catch (IOException e) {
+            throw new RuntimeException("Error in setup, possibly by the file mapper");
+        }
+    }
+}
