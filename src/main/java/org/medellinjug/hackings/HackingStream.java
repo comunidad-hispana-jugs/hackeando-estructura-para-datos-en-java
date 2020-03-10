@@ -1,30 +1,30 @@
 package org.medellinjug.hackings;
 
 
-import org.medellinjug.hackings.model.Data;
+import org.medellinjug.hackings.model.Player;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class HackingStream {
 
-    private HackingStream(){}
-
-    public static Long playersGreaterThanForLoop(List<Data> data, int evaluation){
-        Long total = 0L;
-        for(Data model: data){//loop
-            if(!model.getAge().isEmpty()){//may not exist
-                int age = Integer.parseInt(model.getAge());//mapper
-                if(age > evaluation){//conditional
-                    total++;//sum
-                }
-            }
-        }
-        return total;
+    private HackingStream() {
     }
 
 
-    public  static Long playersGreaterThanStream(List<Data> data, int evaluation){
+    public static Long playersGreaterThanForLoop(List<Player> data, int evaluation) {
+        Long maxAge = 0L;
+        for (Player model : data) {//loop
+            if (!model.getAge().isEmpty()) {//may not exist
+                int age = Integer.parseInt(model.getAge());//mapper
+                if (age > evaluation) {//conditional
+                    maxAge++;//sum
+                }
+            }
+        }
+        return maxAge;
+    }
+
+    public static Long playersGreaterThanStream(List<Player> data, int evaluation) {
         return data.stream()//stream
                 .filter(model -> !model.getAge().isEmpty())//may not exist
                 .map(model -> Integer.parseInt(model.getAge()))//mapper
@@ -33,19 +33,19 @@ public class HackingStream {
     }
 
 
-    public static int getMaxForLoop(int ...ints){
-        int e = ints.length;
-        int m = Integer.MIN_VALUE;
-        for(int i=0; i < e; i++) {
-            if (ints[i] > m) m = ints[i];
+    public static Long playersGreaterThanForIterator(List<Player> data, int evaluation) {
+        Long maxAge = 0L;
+        var it = data.iterator();
+        while (it.hasNext()){
+            var model = it.next();
+            if (!model.getAge().isEmpty()) {//may not exist
+                int age = Integer.parseInt(model.getAge());//mapper
+                if (age > evaluation) {//conditional
+                    maxAge++;//sum
+                }
+            }
         }
-        return m;
+        return maxAge;
     }
-
-    public static int getMaxStream(int ...ints){
-        return Arrays.stream(ints)
-                .reduce(Integer.MIN_VALUE, Math::max);
-    }
-
 
 }

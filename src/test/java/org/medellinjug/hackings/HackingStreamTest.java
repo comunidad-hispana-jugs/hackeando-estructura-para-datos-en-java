@@ -4,7 +4,7 @@ import com.fasterxml.jackson.databind.MappingIterator;
 import com.fasterxml.jackson.dataformat.csv.CsvMapper;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.medellinjug.hackings.model.Data;
+import org.medellinjug.hackings.model.Player;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -38,14 +38,14 @@ public class HackingStreamTest {
         Assertions.assertEquals(532, result);
     }
 
-    private List<Data> getData(){
+    private List<Player> getData(){
         ClassLoader loader = Thread.currentThread().getContextClassLoader();
         InputStream csvfile = loader.getResourceAsStream("data.csv");
-        MappingIterator<Data> personIter;
+        MappingIterator<Player> personIter;
         try {
             assert csvfile != null;
             personIter = new CsvMapper()
-                    .readerWithTypedSchemaFor(Data.class)
+                    .readerWithTypedSchemaFor(Player.class)
                     .readValues(csvfile);
             return personIter.readAll();
         } catch (IOException e) {

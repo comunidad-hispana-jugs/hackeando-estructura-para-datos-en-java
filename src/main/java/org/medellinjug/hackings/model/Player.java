@@ -3,7 +3,7 @@ package org.medellinjug.hackings.model;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonPropertyOrder({"id","name","age","photo","nationality", "flag", "overall", "potential", "club"})
-public class Data {
+public class Player {
 
     private String id;
     private String name;
