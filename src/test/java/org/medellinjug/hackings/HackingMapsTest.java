@@ -26,6 +26,17 @@ public class HackingMapsTest {
         Assertions.assertEquals(164, result.size());
     }
 
+    @Test
+    public void counterForTotalPlayerByClubOpt(){
+        Map<String, Long> result = HackingMaps.getPlayersByClubOpt(getData());
+        Assertions.assertEquals(652, result.size());
+    }
+
+    @Test
+    public void counterForTotalPlayerByClub(){
+        Map<String, Long> result = HackingMaps.getPlayersByClub(getData());
+        Assertions.assertEquals(652, result.size());
+    }
 
     private List<Player> getData(){
         ClassLoader loader = Thread.currentThread().getContextClassLoader();

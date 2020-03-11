@@ -26,17 +26,6 @@ public class HackingStreamTest {
         Assertions.assertEquals(3, result);
     }
 
-    @Test
-    public void validStream(){
-        Integer result = HackingStream.getMaxStream(3,4,2,1,2,4,243,123,123,532,123,211,23);
-        Assertions.assertEquals(532, result);
-    }
-
-    @Test
-    public void validForLoop(){
-        Integer result = HackingStream.getMaxForLoop(3,4,2,1,2,4,243,123,123,532,123,211,23);
-        Assertions.assertEquals(532, result);
-    }
 
     private List<Player> getData(){
         ClassLoader loader = Thread.currentThread().getContextClassLoader();
