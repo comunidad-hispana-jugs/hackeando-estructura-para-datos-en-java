@@ -9,14 +9,13 @@ En todos los casos revisar como es el uso de la memoria, objetos creados, tiempo
 	
 - Numeros: primitivos vs wrappers, decimales, monedas
 
-
 - Fechas:   Date, Calendar Vs API Time
-
-- API Stream Vs Collections: Lambdas y PF son populares porque "reducen" lineas de codigos, pero que pasa con el rendimiento? 
 
 - Collections: Arrays vs List vs Set 
 
 - Listas: Adicionar eliminar elementos el List
+
+- API Stream Vs Collections: Lambdas y PF son populares porque "reducen" lineas de codigos, pero que pasa con el rendimiento? 
 
 - Map: Buscar un caso de uso  en donde al pasar una lista de datos a un Map para trabajar con los key puede ser mas optimo
 

@@ -3,7 +3,7 @@ package org.medellinjug.hackings.model;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonPropertyOrder({"id","name","age","photo","nationality", "flag", "overall", "potential", "club"})
-public class Data {
+public class Player {
 
     private String id;
     private String name;
@@ -12,8 +12,17 @@ public class Data {
     private String nationality;
     private String flag;
     private String overall;
-    private String potential;
     private String club;
+
+    public String getFin() {
+        return fin;
+    }
+
+    public void setFin(String fin) {
+        this.fin = fin;
+    }
+
+    private String fin;
 
     public String getId() {
         return id;
@@ -71,13 +80,6 @@ public class Data {
         this.overall = overall;
     }
 
-    public String getPotential() {
-        return potential;
-    }
-
-    public void setPotential(String potential) {
-        this.potential = potential;
-    }
 
     public String getClub() {
         return club;

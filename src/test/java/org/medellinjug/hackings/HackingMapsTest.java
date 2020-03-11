@@ -9,23 +9,34 @@ import org.medellinjug.hackings.model.Player;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
+import java.util.Map;
 
-public class HackingStreamTest {
+public class HackingMapsTest {
 
-    private final Integer CONDITIONAL_AGE = 43;
 
     @Test
-    public void validStreamWithDataModel(){
-        Long result = HackingStream.playersGreaterThanStream(getData(), CONDITIONAL_AGE);
-        Assertions.assertEquals(3, result);
+    public void counterPlayer(){
+        Map<String, List<Player>> result = HackingMaps.getPlayerByNationality(getData());
+        Assertions.assertEquals(164, result.size());
     }
 
     @Test
-    public void validForLoopWithDataModel(){
-        Long result = HackingStream.playersGreaterThanForLoop(getData(), CONDITIONAL_AGE);
-        Assertions.assertEquals(3, result);
+    public void counterForTotalPlayer(){
+        Map<String, Map<String, Long>> result = HackingMaps.getPlayerByNationalityGroupByClubs(getData());
+        Assertions.assertEquals(164, result.size());
     }
 
+    @Test
+    public void counterForTotalPlayerByClubOpt(){
+        Map<String, Long> result = HackingMaps.getPlayersByClubOpt(getData());
+        Assertions.assertEquals(652, result.size());
+    }
+
+    @Test
+    public void counterForTotalPlayerByClub(){
+        Map<String, Long> result = HackingMaps.getPlayersByClub(getData());
+        Assertions.assertEquals(652, result.size());
+    }
 
     private List<Player> getData(){
         ClassLoader loader = Thread.currentThread().getContextClassLoader();
