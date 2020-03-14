@@ -1,0 +1,145 @@
+/home/raul.alzate/Descargas/idea-IC-193.6015.39/jbr/bin/java -javaagent:/home/raul.alzate/Descargas/idea-IC-193.6015.39/lib/idea_rt.jar=43773:/home/raul.alzate/Descargas/idea-IC-193.6015.39/bin -Dfile.encoding=UTF-8 -classpath /home/raul.alzate/Documentos/training/hackeando-estructura-para-datos-en-java/target/classes:/home/raul.alzate/.m2/repository/org/openjdk/jmh/jmh-core/1.23/jmh-core-1.23.jar:/home/raul.alzate/.m2/repository/net/sf/jopt-simple/jopt-simple/4.6/jopt-simple-4.6.jar:/home/raul.alzate/.m2/repository/org/apache/commons/commons-math3/3.2/commons-math3-3.2.jar:/home/raul.alzate/.m2/repository/org/openjdk/jmh/jmh-generator-annprocess/1.23/jmh-generator-annprocess-1.23.jar:/home/raul.alzate/.m2/repository/com/fasterxml/jackson/dataformat/jackson-dataformat-csv/2.10.3/jackson-dataformat-csv-2.10.3.jar:/home/raul.alzate/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.10.3/jackson-databind-2.10.3.jar:/home/raul.alzate/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.10.3/jackson-annotations-2.10.3.jar:/home/raul.alzate/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.10.3/jackson-core-2.10.3.jar org.medellinjug.BenchmarkRunner
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.openjdk.jmh.util.Utils (file:/home/raul.alzate/.m2/repository/org/openjdk/jmh/jmh-core/1.23/jmh-core-1.23.jar) to field java.io.PrintStream.charOut
+WARNING: Please consider reporting this to the maintainers of org.openjdk.jmh.util.Utils
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+# JMH version: 1.23
+# VM version: JDK 11.0.5, OpenJDK 64-Bit Server VM, 11.0.5+10-b520.38
+# VM invoker: /home/raul.alzate/Descargas/idea-IC-193.6015.39/jbr/bin/java
+# VM options: -javaagent:/home/raul.alzate/Descargas/idea-IC-193.6015.39/lib/idea_rt.jar=43773:/home/raul.alzate/Descargas/idea-IC-193.6015.39/bin -Dfile.encoding=UTF-8
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: org.medellinjug.Benchmarks.getPlayersByClub_map
+
+# Run progress: 0,00% complete, ETA 00:06:40
+# Fork: 1 of 1
+# Warmup Iteration   1: 1,334 ops/s
+# Warmup Iteration   2: 1,313 ops/s
+# Warmup Iteration   3: 1,366 ops/s
+# Warmup Iteration   4: 1,323 ops/s
+# Warmup Iteration   5: 1,135 ops/s
+Iteration   1: 1,363 ops/s
+Iteration   2: 1,353 ops/s
+Iteration   3: 1,310 ops/s
+Iteration   4: 1,322 ops/s
+Iteration   5: 1,361 ops/s
+
+
+Result "org.medellinjug.Benchmarks.getPlayersByClub_map":
+  1,342 ±(99.9%) 0,093 ops/s [Average]
+  (min, avg, max) = (1,310, 1,342, 1,363), stdev = 0,024
+  CI (99.9%): [1,249, 1,435] (assumes normal distribution)
+
+
+# JMH version: 1.23
+# VM version: JDK 11.0.5, OpenJDK 64-Bit Server VM, 11.0.5+10-b520.38
+# VM invoker: /home/raul.alzate/Descargas/idea-IC-193.6015.39/jbr/bin/java
+# VM options: -javaagent:/home/raul.alzate/Descargas/idea-IC-193.6015.39/lib/idea_rt.jar=43773:/home/raul.alzate/Descargas/idea-IC-193.6015.39/bin -Dfile.encoding=UTF-8
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: org.medellinjug.Benchmarks.getPlayersByClub_stream
+
+# Run progress: 25,00% complete, ETA 00:05:20
+# Fork: 1 of 1
+# Warmup Iteration   1: 1,275 ops/s
+# Warmup Iteration   2: 1,194 ops/s
+# Warmup Iteration   3: 1,219 ops/s
+# Warmup Iteration   4: 1,227 ops/s
+# Warmup Iteration   5: 1,237 ops/s
+Iteration   1: 1,254 ops/s
+Iteration   2: 1,186 ops/s
+Iteration   3: 1,227 ops/s
+Iteration   4: 1,254 ops/s
+Iteration   5: 1,284 ops/s
+
+
+Result "org.medellinjug.Benchmarks.getPlayersByClub_stream":
+  1,241 ±(99.9%) 0,141 ops/s [Average]
+  (min, avg, max) = (1,186, 1,241, 1,284), stdev = 0,037
+  CI (99.9%): [1,100, 1,382] (assumes normal distribution)
+
+
+# JMH version: 1.23
+# VM version: JDK 11.0.5, OpenJDK 64-Bit Server VM, 11.0.5+10-b520.38
+# VM invoker: /home/raul.alzate/Descargas/idea-IC-193.6015.39/jbr/bin/java
+# VM options: -javaagent:/home/raul.alzate/Descargas/idea-IC-193.6015.39/lib/idea_rt.jar=43773:/home/raul.alzate/Descargas/idea-IC-193.6015.39/bin -Dfile.encoding=UTF-8
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: org.medellinjug.Benchmarks.playersGreaterThan_forLoop
+
+# Run progress: 50,00% complete, ETA 00:03:32
+# Fork: 1 of 1
+# Warmup Iteration   1: 728,071 ops/s
+# Warmup Iteration   2: 779,739 ops/s
+# Warmup Iteration   3: 807,979 ops/s
+# Warmup Iteration   4: 735,867 ops/s
+# Warmup Iteration   5: 811,281 ops/s
+Iteration   1: 700,561 ops/s
+Iteration   2: 680,806 ops/s
+Iteration   3: 569,760 ops/s
+Iteration   4: 664,033 ops/s
+Iteration   5: 656,958 ops/s
+
+
+Result "org.medellinjug.Benchmarks.playersGreaterThan_forLoop":
+  654,424 ±(99.9%) 193,410 ops/s [Average]
+  (min, avg, max) = (569,760, 654,424, 700,561), stdev = 50,228
+  CI (99.9%): [461,014, 847,834] (assumes normal distribution)
+
+
+# JMH version: 1.23
+# VM version: JDK 11.0.5, OpenJDK 64-Bit Server VM, 11.0.5+10-b520.38
+# VM invoker: /home/raul.alzate/Descargas/idea-IC-193.6015.39/jbr/bin/java
+# VM options: -javaagent:/home/raul.alzate/Descargas/idea-IC-193.6015.39/lib/idea_rt.jar=43773:/home/raul.alzate/Descargas/idea-IC-193.6015.39/bin -Dfile.encoding=UTF-8
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: org.medellinjug.Benchmarks.playersGreaterThan_stream
+
+# Run progress: 75,00% complete, ETA 00:01:44
+# Fork: 1 of 1
+# Warmup Iteration   1: 412,682 ops/s
+# Warmup Iteration   2: 423,988 ops/s
+# Warmup Iteration   3: 435,254 ops/s
+# Warmup Iteration   4: 424,220 ops/s
+# Warmup Iteration   5: 432,775 ops/s
+Iteration   1: 406,668 ops/s
+Iteration   2: 435,324 ops/s
+Iteration   3: 447,440 ops/s
+Iteration   4: 462,393 ops/s
+Iteration   5: 445,738 ops/s
+
+
+Result "org.medellinjug.Benchmarks.playersGreaterThan_stream":
+  439,513 ±(99.9%) 79,881 ops/s [Average]
+  (min, avg, max) = (406,668, 439,513, 462,393), stdev = 20,745
+  CI (99.9%): [359,631, 519,394] (assumes normal distribution)
+
+
+# Run complete. Total time: 00:06:56
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+Benchmark                               Mode  Cnt    Score     Error  Units
+Benchmarks.getPlayersByClub_map        thrpt    5    1,342 ±   0,093  ops/s
+Benchmarks.getPlayersByClub_stream     thrpt    5    1,241 ±   0,141  ops/s
+Benchmarks.playersGreaterThan_forLoop  thrpt    5  654,424 ± 193,410  ops/s
+Benchmarks.playersGreaterThan_stream   thrpt    5  439,513 ±  79,881  ops/s
+
+Process finished with exit code 0
