@@ -7,15 +7,16 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-public class CollectionsTest {
+public class HackingCollectionsTest {
 
 	public static List<String> getClients(){
 		List<String> clients = new ArrayList<>(  );
 
-		for(int it=0; it<50000000;it++){
+		for(int it=0; it<50_000_000;it++){
 			clients.add("PATRICIA");
 			clients.add("DANIEL");
 			clients.add("HILLMER");
+			clients.add("RAUL");
 
 		}
 		return clients;

@@ -3,7 +3,7 @@ package org.medellinjug.hackings;
 public class HackingStrings {
 
 	/*
-	* Se requiere concatenar los números del 1 al 1 millón
+	* Se requiere concatenar los números de un rango dado
 	* */
 
 
@@ -15,7 +15,7 @@ public class HackingStrings {
 	}
 
 	public static void usingStringBuilder(int start, int end){
-		StringBuffer myString = new StringBuffer("");
+		StringBuilder myString = new StringBuilder("");
 		for(int it=start; it<=end; it++ ) {
 			myString.append(it);
 		}

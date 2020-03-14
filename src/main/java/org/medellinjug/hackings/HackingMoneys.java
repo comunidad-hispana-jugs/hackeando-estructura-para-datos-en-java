@@ -1,5 +1,7 @@
 package org.medellinjug.hackings;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.List;
 
@@ -15,7 +17,7 @@ public class HackingMoneys {
 
 	 */
 
-	public static Long calculateBonus(List<Double> monthlyPercentages, Long salary) {
+	public static Long calculateBonusWithDoubles(List<Double> monthlyPercentages, Long salary) {
 
 		Double sumPercentage = 0D;
 		for(Double montPercentage:monthlyPercentages){
@@ -31,4 +33,32 @@ public class HackingMoneys {
 		return bonusValue.longValue();
 
 	}
+
+	public static Long calculateBonusWithBigDecimal(List<Double> monthlyPercentages, Long salary) {
+
+		BigDecimal sumPercentage = BigDecimal.ZERO;
+
+
+		for(Double montPercentage:monthlyPercentages){
+			BigDecimal bigMontPercentage =  new BigDecimal( montPercentage );
+			sumPercentage = sumPercentage.add( bigMontPercentage );
+		}
+
+		sumPercentage = sumPercentage.setScale( 1 , RoundingMode.FLOOR);
+		BigDecimal sumPercentageONE = BigDecimal.ONE;
+
+		if (sumPercentage.equals( sumPercentageONE )){ // 1 equals 100%
+			sumPercentage = sumPercentage.add(  new BigDecimal( 1 ) );
+		}
+
+		if (sumPercentage.doubleValue()==1){ // 1 equals 100%
+			sumPercentage = sumPercentage.add(  new BigDecimal( 1 ) );
+		}
+
+		Double bonusValue = sumPercentage.doubleValue()*salary;
+
+		return bonusValue.longValue();
+
+	}
+
 }

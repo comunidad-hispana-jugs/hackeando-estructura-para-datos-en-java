@@ -1,22 +1,23 @@
-# hackeando-estructura-para-datos-en-java
+Hackeando estructura para datos en Java
 
 
-Para cada caso de uso buscar casos de usos reales
-En todos los casos revisar como es el uso de la memoria, objetos creados, tiempos de respuesta, con herramientas como Java flight recorder y mission control u otra que exista
+Este repositorio contiene una serie de ejercicios utilizados para mostrar:
 
+- Comportamientos no esperados cuando se usan ciertos tipos de datos
+- Comparación del rendimiento al programar el mismo caso de uso utilizando diferentes estructuras 
+de datos
 
-- Cadenas:  String, Builder, Buffer. Objetivo: Mostrar como es el uso de estras 3 clases, diferencias sobre todo en el manejo de la memoria
-	
-- Numeros: primitivos vs wrappers, decimales, monedas
+Algunos ejercicios son teoricos y se usan solo con el interés de mostrar la situación que se quiere ejemplificar
 
-- Fechas:   Date, Calendar Vs API Time
+Los ejercicios presentados incluyen:
 
-- Collections: Arrays vs List vs Set 
+- HackingStrings: Comparación del rendimiento de String y StringBuilder
+- HackingMoneys: Demostración de como el uso de Doubles puede generar resultados no esperados cuando se procesan valores decimales.
+ Incluye una alternativa de solución utilizando BigDecimal
+- HackingCollections:  Comparación del rendimiento entre java.util.List y java.util.Set
+- HackingLists: Comparación del rendimiento entre java.util.ArrayList y java.util.LinkedList
+- HackigMaps: Demostración de como manipular arreglos con for-loop and el AIP Stream para acumular resultados con la clase java.util.Map
+- HackingStreams: Comparación de for-loop y el API Stream
 
-- Listas: Adicionar eliminar elementos el List
-
-- API Stream Vs Collections: Lambdas y PF son populares porque "reducen" lineas de codigos, pero que pasa con el rendimiento? 
-
-- Map: Buscar un caso de uso  en donde al pasar una lista de datos a un Map para trabajar con los key puede ser mas optimo
 
 

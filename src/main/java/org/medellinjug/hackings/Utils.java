@@ -16,22 +16,11 @@ public class Utils {
 
     public static void printResults(String operation,
                                     long arrayListTime,
-                                    long linkedListTime, int amountData, int amountIterations) {
-        System.out.println(
-                "[" + operation + "] Amount Data: " + amountData);
-        System.out.println(
-                "[" + operation + "] Amount Iterations: " + amountIterations);
-        System.out.println(
-                "[" + operation + "] Average ArrayList (ms): " + calculateAverage(
-                        arrayListTime, amountIterations));
-        System.out.println(
-                "[" + operation + "] Average LinkedList (ms): " + (calculateAverage(
-                        linkedListTime, amountIterations)));
-    }
+                                    long linkedListTime, int amountData) {
+        System.out.println("[" + operation + "] Amount Data: " + amountData);
 
-    public static float calculateAverage(
-            long totalTime, int amountIterations) {
-        return totalTime / (float) amountIterations;
+        System.out.println("[" + operation + "] ArrayList (ms): " + arrayListTime);
+        System.out.println("[" + operation + "] LinkedList (ms): " + linkedListTime);
     }
 
     public static long calculateTime(Runnable runnable) {

@@ -5,9 +5,9 @@ import org.medellinjug.hackings.model.Player;
 
 import java.util.List;
 
-public class HackingStream {
+public class HackingStreams {
 
-    private HackingStream() {
+    private HackingStreams() {
     }
 
 

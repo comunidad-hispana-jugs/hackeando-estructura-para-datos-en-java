@@ -16,13 +16,13 @@ public class HackingStreamTest {
 
     @Test
     public void validStreamWithDataModel(){
-        Long result = HackingStream.playersGreaterThanStream(getData(), CONDITIONAL_AGE);
+        Long result = HackingStreams.playersGreaterThanStream( getData(), CONDITIONAL_AGE);
         Assertions.assertEquals(3, result);
     }
 
     @Test
     public void validForLoopWithDataModel(){
-        Long result = HackingStream.playersGreaterThanForLoop(getData(), CONDITIONAL_AGE);
+        Long result = HackingStreams.playersGreaterThanForLoop( getData(), CONDITIONAL_AGE);
         Assertions.assertEquals(3, result);
     }
 

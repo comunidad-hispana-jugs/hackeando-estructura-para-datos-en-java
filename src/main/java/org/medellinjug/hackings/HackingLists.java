@@ -6,204 +6,135 @@ import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 
-import static org.medellinjug.hackings.Utils.calculateTime;
-import static org.medellinjug.hackings.Utils.populate;
 
 public class HackingLists {
-    public static Result addEnd(int amountData, int amountIterations) {
-        long arrayListTime = 0;
-        long linkedListTime = 0;
-        int valueAdded = amountData / 2;
 
-        for (int i = 1; i <= amountIterations; i++) {
-            Collection<Integer> data = populate(amountData);
+	public static Result addEnd(int amountData, Integer newNumber) {
 
-            ArrayList<Integer> arrayList = new ArrayList<>(
-                    data);
-            LinkedList<Integer> linkedList = new LinkedList<>(
-                    data);
+		Collection<Integer> data = Utils.populate( amountData );
 
-            arrayListTime += addToEnd(arrayList, valueAdded);
-            linkedListTime += addToEnd(linkedList,
-                    valueAdded);
-        }
+		List<Integer> arrayList = new ArrayList<>( data );
+		List<Integer> linkedList = new LinkedList<>( data );
 
-        return new Result(arrayListTime, linkedListTime);
-    }
+		long arrayListTime  = addToEnd( arrayList, newNumber );
+		long linkedListTime = addToEnd( linkedList, newNumber );
 
-    private static long addToEnd(List<Integer> list,
-                                 Integer value) {
-        return calculateTime(() -> list
-                .add(value));
-    }
+		return new Result( arrayListTime, linkedListTime );
+	}
 
-    public static Result addMiddle(int amountData, int amountIterations) {
-        long arrayListTime = 0;
-        long linkedListTime = 0;
-        int valueAdded = amountData / 2;
+	private static long addToEnd(List<Integer> list, Integer number) {
+		return Utils.calculateTime( () -> list.add( number ) );
+	}
 
-        for (int i = 1; i <= amountIterations; i++) {
-            Collection<Integer> data = populate(amountData);
+	public static Result addMiddle(int amountData, Integer newNumber) {
 
-            ArrayList<Integer> arrayList = new ArrayList<>(
-                    data);
-            LinkedList<Integer> linkedList = new LinkedList<>(
-                    data);
+		Collection<Integer> data = Utils.populate( amountData );
 
-            arrayListTime += addToMiddle(arrayList,
-                    valueAdded);
-            linkedListTime += addToMiddle(linkedList,
-                    valueAdded);
-        }
+		ArrayList<Integer> arrayList = new ArrayList<>( data );
+		LinkedList<Integer> linkedList = new LinkedList<>( data );
 
-        return new Result(arrayListTime, linkedListTime);
-    }
+		long arrayListTime = addToMiddle(arrayList, newNumber);
+		long linkedListTime = addToMiddle( linkedList, newNumber);
 
-    private static long addToMiddle(List<Integer> list,
-                                    Integer value) {
-        return calculateTime(() -> list
-                .add(value, value));
-    }
 
-    public static Result addStart(int amountData, int amountIterations) {
-        long arrayListTime = 0;
-        long linkedListTime = 0;
-        int valueAdded = amountData / 2;
+		return new Result( arrayListTime, linkedListTime );
+	}
 
-        for (int i = 1; i <= amountIterations; i++) {
-            Collection<Integer> data = populate(amountData);
+	private static long addToMiddle(List<Integer> list, Integer value) {
+		return Utils.calculateTime( () -> list.add( value, value ) );
+	}
 
-            ArrayList<Integer> arrayList = new ArrayList<>(
-                    data);
-            LinkedList<Integer> linkedList = new LinkedList<>(
-                    data);
+	public static Result addStart(int amountData, Integer newNumber) {
 
-            arrayListTime += addToStart(arrayList,
-                    valueAdded);
-            linkedListTime += addToStart(linkedList,
-                    valueAdded);
-        }
+		Collection<Integer> data = Utils.populate( amountData );
 
-        return new Result(arrayListTime, linkedListTime);
-    }
+		ArrayList<Integer> arrayList = new ArrayList<>( data );
+		LinkedList<Integer> linkedList = new LinkedList<>( data );
 
-    private static long addToStart(List<Integer> list,
-                                   Integer value) {
-        return calculateTime(() -> list
-                .add(0, value));
-    }
+		long arrayListTime = addToStart(arrayList, newNumber);
+		long linkedListTime = addToStart(linkedList, newNumber);
 
-    public static Result deleteEnd(int amountData, int amountIterations) {
-        long arrayListTime = 0;
-        long linkedListTime = 0;
+		return new Result( arrayListTime, linkedListTime );
+	}
 
-        for (int i = 1; i <= amountIterations; i++) {
-            Collection<Integer> data = populate(amountData);
+	private static long addToStart(List<Integer> list, Integer value) {
+		return Utils.calculateTime( () -> list.add( 0, value ) );
+	}
 
-            ArrayList<Integer> arrayList = new ArrayList<>(
-                    data);
-            LinkedList<Integer> linkedList = new LinkedList<>(
-                    data);
+	private static long deleteFromPosition(List<Integer> list, int position) {
+		return Utils.calculateTime( () -> list.remove( position ) );
+	}
+	public static Result deleteEnd(int amountData) {
 
-            arrayListTime += deleteFromEnd(arrayList);
-            linkedListTime += deleteFromEnd(linkedList);
-        }
+		Collection<Integer> data = Utils.populate( amountData );
 
-        return new Result(arrayListTime, linkedListTime);
-    }
+		ArrayList<Integer> arrayList = new ArrayList<>( data );
+		LinkedList<Integer> linkedList = new LinkedList<>( data );
 
-    private static long deleteFromEnd(List<Integer> list) {
-        return calculateTime(() -> list
-                .remove(list.size() - 1));
-    }
+		long arrayListTime = deleteFromPosition( arrayList, arrayList.size() - 1);
+		long linkedListTime = deleteFromPosition( linkedList, linkedList.size() - 1 );
 
-    public static Result deleteMiddle(int amountData, int amountIterations) {
-        long arrayListTime = 0;
-        long linkedListTime = 0;
+		return new Result( arrayListTime, linkedListTime );
+	}
 
-        for (int i = 1; i <= amountIterations; i++) {
-            Collection<Integer> data = populate(amountData);
+	public static Result deleteMiddle(int amountData) {
+		Collection<Integer> data = Utils.populate( amountData );
 
-            ArrayList<Integer> arrayList = new ArrayList<>(
-                    data);
-            LinkedList<Integer> linkedList = new LinkedList<>(
-                    data);
+		ArrayList<Integer> arrayList = new ArrayList<>( data );
+		LinkedList<Integer> linkedList = new LinkedList<>( data );
 
-            arrayListTime += deleteFromMiddle(arrayList);
-            linkedListTime += deleteFromMiddle(linkedList);
-        }
+		long arrayListTime = deleteFromPosition( arrayList, arrayList.size() / 2 );
+		long linkedListTime = deleteFromPosition( linkedList, linkedList.size() / 2 );
 
-        return new Result(arrayListTime, linkedListTime);
-    }
+		return new Result( arrayListTime, linkedListTime );
+	}
 
-    private static long deleteFromMiddle(List<Integer> list) {
-        return calculateTime(() -> list
-                .remove(list.size() / 2));
-    }
+	public static Result deleteStart(int amountData) {
 
-    public static Result deleteStart(int amountData, int amountIterations) {
-        long arrayListTime = 0;
-        long linkedListTime = 0;
+		Collection<Integer> data = Utils.populate( amountData );
 
-        for (int i = 1; i <= amountIterations; i++) {
-            Collection<Integer> data = populate(amountData);
+		ArrayList<Integer> arrayList = new ArrayList<>( data );
+		LinkedList<Integer> linkedList = new LinkedList<>( data );
 
-            ArrayList<Integer> arrayList = new ArrayList<>(
-                    data);
-            LinkedList<Integer> linkedList = new LinkedList<>(
-                    data);
+		long arrayListTime = deleteFromPosition( arrayList, 0);
+		long linkedListTime = deleteFromPosition( linkedList, 0 );
 
-            arrayListTime += deleteFromStart(arrayList);
-            linkedListTime += deleteFromStart(linkedList);
-        }
+		return new Result( arrayListTime, linkedListTime );
+	}
 
-        return new Result(arrayListTime, linkedListTime);
-    }
 
-    private static long deleteFromStart(List<Integer> list) {
-        return calculateTime(() -> list
-                .remove(0));
-    }
+	public static Result getFromPosition(int amountData, int position) {
 
-    public static Result getMiddle(int amountData, int amountIterations) {
-        long arrayListTime = 0;
-        long linkedListTime = 0;
+		Collection<Integer> data = Utils.populate( amountData );
 
-        for (int i = 1; i <= amountIterations; i++) {
-            Collection<Integer> data = populate(amountData);
+		ArrayList<Integer> arrayList = new ArrayList<>( data );
+		LinkedList<Integer> linkedList = new LinkedList<>( data );
 
-            ArrayList<Integer> arrayList = new ArrayList<>(
-                    data);
-            LinkedList<Integer> linkedList = new LinkedList<>(
-                    data);
+		long arrayListTime = getFromPosition( arrayList, position );
+		long linkedListTime = getFromPosition( linkedList, position );
 
-            arrayListTime += getFromMiddle(arrayList);
-            linkedListTime += getFromMiddle(linkedList);
-        }
+		return new Result( arrayListTime, linkedListTime );
+	}
 
-        return new Result(arrayListTime, linkedListTime);
-    }
+	private static long getFromPosition(List<Integer> list, int position) {
+		return Utils.calculateTime( () -> list.get( position ) );
+	}
 
-    private static long getFromMiddle(List<Integer> list) {
-        return calculateTime(() -> list
-                .get(list.size() / 2));
-    }
+	public static class Result {
+		private final long timeArrayList;
+		private final long timeLinkedList;
 
-    public static class Result {
-        private final long arrayList;
-        private final long linkedList;
+		public Result(long timeArrayList, long timeLinkedList) {
+			this.timeArrayList = timeArrayList;
+			this.timeLinkedList = timeLinkedList;
+		}
 
-        public Result(long arrayList, long linkedList) {
-            this.arrayList = arrayList;
-            this.linkedList = linkedList;
-        }
+		public long getTimeArrayList() {
+			return timeArrayList;
+		}
 
-        public long getArrayList() {
-            return arrayList;
-        }
-
-        public long getLinkedList() {
-            return linkedList;
-        }
-    }
+		public long getTimeLinkedList() {
+			return timeLinkedList;
+		}
+	}
 }

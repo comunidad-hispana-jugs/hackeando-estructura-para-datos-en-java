@@ -1,6 +1,5 @@
 package org.medellinjug.hackings;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -25,7 +24,6 @@ public class HackingCollections {
 		return clientsUnique.size();
 	}
 
-
 	public static int countUniqueClientsWithSets(List<String> clients){
 		Set<String> clientsUnique = new HashSet<>();
 		for(String client: clients){
@@ -35,6 +33,5 @@ public class HackingCollections {
 		}
 		return clientsUnique.size();
 	}
-
 
 }

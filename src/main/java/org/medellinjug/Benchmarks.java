@@ -3,7 +3,7 @@ package org.medellinjug;
 import com.fasterxml.jackson.databind.MappingIterator;
 import com.fasterxml.jackson.dataformat.csv.CsvMapper;
 import org.medellinjug.hackings.HackingMaps;
-import org.medellinjug.hackings.HackingStream;
+import org.medellinjug.hackings.HackingStreams;
 import org.medellinjug.hackings.model.Player;
 import org.openjdk.jmh.annotations.*;
 
@@ -19,7 +19,7 @@ public class Benchmarks {
     @OutputTimeUnit(TimeUnit.SECONDS)
     @Fork(1)
     public  void playersGreaterThan_forLoop(ScopeTester scopeTester){
-         HackingStream.playersGreaterThanForLoop(
+         HackingStreams.playersGreaterThanForLoop(
                 scopeTester.getData(),
                 scopeTester.evaluationAge
         );
@@ -31,7 +31,7 @@ public class Benchmarks {
     @OutputTimeUnit(TimeUnit.SECONDS)
     @Fork(1)
     public  void playersGreaterThan_stream(ScopeTester scopeTester){
-         HackingStream.playersGreaterThanStream(
+         HackingStreams.playersGreaterThanStream(
                 scopeTester.getData(),
                 scopeTester.evaluationAge
         );
